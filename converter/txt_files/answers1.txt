@@ -1,0 +1,8 @@
+- patient number is our patient number, MRN isn't info we'll be storing in our database, PN is unique
+- time on unit - relative to the time that you were brought in, when you had that ambulation, e.g. time for this 
+ambulation - admission time
+- admission date is admission to the hospital, then go into surgery etc., transfer date is when you're tranferred to the unit
+- PCU = progressive care unit, the unit we are looking at 
+- Don't get dates from ambu;ations, these dates will come from input by the research clinicians, this data lives in JHBox currently
+- Badge number is also in JHBox
+

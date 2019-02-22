@@ -1,0 +1,57 @@
+***************************************************************************************
+ambulation daily
+
+patient ID   day on unit  # of ambulations  Distance(ft)min/mean/max etc.   <-- these are now gonna be for this specific day!!!!!! 
+
+new idea: to calculate these, go through each patient, and for each patient go through each day in the list of days 
+they have, and find the number of ambulations and all this other stuff
+***************************************************************************************
+
+
+
+
+***************************************************************************************
+ambulation unit
+
+patient id  #of ambulations  Ambulation frequency   Ambulation compliance (%)  Total distance(ft)   Change over time
+
+
+
+Ambulation frequency - cant do yet bc we dont know length of stay
+#of ambulations - can do 
+Total distance - can do
+Change over time - can do, but don't do yet
+
+
+Idea: go through each patient in our map and calculate each of these values for them 
+***************************************************************************************
+
+
+
+
+***************************************************************************************
+Possible idea for later: 3rd class - Day
+
+map from date to Day objects for each Patient object
+
+Day object will contain a list of ambulations, as well as the min/mean/max for each object
+
+implemented?? see if it works
+***************************************************************************************
+
+
+
+***************************************************************************************
+Order of things to do: 
+
+- See if you can make a table in the database -> message Will if you can't figure it out quickly
+- If you can, do so. If not, figure out how to make an excel sheet - maybe look at what you did in the data mining journal, it seemed pretty ez
+- Run your program, see if it compiles
+- If so, work on building ambulation on unit first, work on this til it works
+- Modify your patient object to carry a map of dates to Day objects
+- Run through this thing and populate the ambulation daily table 
+
+
+
+***************************************************************************************
+

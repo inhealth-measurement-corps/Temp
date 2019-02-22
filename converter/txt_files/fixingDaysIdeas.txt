@@ -1,0 +1,12 @@
+
+First step: figure out how to get info from patient_data table - Done
+
+How to fix days issue
+
+right now - map of date to day objects
+
+Use list of dates between the two dates to initialize a map mapping the dates to empty Day objects 
+
+later, if something happens on a day you can map it to that Day object.
+handle empty Day objects later
+

@@ -1,0 +1,25 @@
+These plots are of distance vs. seconds since admission date.
+
+To be specific, it is not seconds until the specific ambulation, but seconds until the date this ambulation happened. Therefore points only have x axis values that are multiples of 86,400 (24hours*60minutes*60seconds)
+
+In choosing patients, I am calling an 'standard case' a case in which the patient ambulates at least once every day, except for possibly the first and last day they are in the unit. 
+
+The patients I chose are as follows:
+
+patient 111: Standard case, average length of stay
+had 6 days on unit, did ambulations on days 2-5
+
+patient 26: Standard case, longer stay
+10 days on unit, did ambulations every day except day 1 and day 10
+
+patient 11: Standard case, shorter stay
+3 days on unit, only did ambulations on day 1 and 2
+
+patient 1: No ambulations for the first few days
+had 6 days in unit, did ambulations days 4-6
+
+patient 8: Short stay with only one day of ambulations (we can't find a slope for this case currently)
+3 days on unit, did 2 ambulations day 2 and no other ambulations
+
+patient 34: Medium/long stay with only a couple days of ambulations
+6 days on unit, only did ambulation on day 3 and day 5

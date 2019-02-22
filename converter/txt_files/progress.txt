@@ -1,0 +1,50 @@
+Patient Object
+    Done:
+        MRN
+        RN 
+        
+        list of ambulation objects
+        total # of ambulations 
+        
+        max. amb. distance
+        mean. amb. distance
+        min amb. distance
+
+        max amb. duration
+        mean amb. duration
+        min amb. duration
+
+        max amb. speed
+        mean amb. speed
+        min amb. speed
+
+        average # of ambulations/day 
+        
+    Don't have necessary info (I think):
+        BN - Badge Number 
+        Admission Date 
+        Transfer date 
+        Discharge Date 
+        Length of Stay(TD-DD) 
+
+    Haven't done yet:
+        change in amb. distance over time
+        change in amb. duration over time
+        change in amb. speed over time
+
+        fix these:
+        compliance with 1/day  (I think?) <-- did it wrong!
+        compliance with 2/day  (I think?) <-- did it wrong!
+        compliance with 3/day  (I think?) <-- did it wrong! 
+
+
+Ambulation Object:
+    Done:
+        patient number/MRN
+        start_datetime
+        distance
+        duration
+        speed
+    Might not have necessary info?
+        Time on unit -> can't do this yet since we don't have time on unit yet. 
+

@@ -1,0 +1,39 @@
+
+
+For getting average number of ambulations/day and compliance with 1/day, 2/day, 3/day
+
+Hashmap mapping from day to number of ambulations on that day?? 
+
+When ambulation is added, we see what day the ambulation happened.
+
+If the ambulation happened during a day we already have a recorded an ambulation for, incremenet that days # of ambulations, and if not we make a new entry in the dictionary with the mapping from the day to ambulation number (this will be 1).
+
+*The day the ambulation was started will count as the day of ambulation, even if the ambulation ends on the next day
+
+For compliance: Keep track of the minimum number of ambulations that have happened on any day?? How would we update though? 
+
+e.g. [day1:2, day2:3, day3: 2]
+
+min is 2 
+update day1
+
+how would we know what the new min is?
+Use a heap?
+--> more effort than necessary for now, can just run through map and get minimum 
+
+
+Getting change in distance, change in speed, and change in duration over time
+
+- need to perform a linear regression and get the slope of the line?
+data we need: need dates of ambulation on x axis (this will just be when they start the ambulation) and 
+speed, distance, or duration of that ambulation on x axis. We get this data from the list of ambulations 
+each patient stores. Caveat: We can only do this with patients with at least 2 ambulations. 
+
+Steps: get a list of dates and corresponding duration, distance, or speed
+
+>x axis should be time (in seconds) since they've been there, aka admission date?
+ - can't do that right now, do something else for the time being
+ - way to do it for now: convert ambulation start time to seconds, then make the earliest ambulation the zero and substract that time from each item in the list
+
+ first step: generate matching lists of dates and matching speed, duration, and distance
+  - way to do it: run through all ambulations and generate lists

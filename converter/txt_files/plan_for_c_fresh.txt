@@ -1,0 +1,4 @@
+- If Patient IDs are indeed unique, then the combination of ID and date should be enough to function as a unique identifier for that patients stay (assuming everything works correctly). 
+
+- We could just keep a txt file with all of the patient ID and date combos in a hashformat thing, and run through the sql table each time and check against that txt file if each entry is new 
+- If any entry is new, run the standard code on it, then add it to the txt file 

@@ -1,0 +1,24 @@
+
+- x axis of regression plot is seconds since transfer date
+
+what I need to figure out: How to make my code run automatically when a patients data
+moves from live to historical, i.e. when the fact they are discharged shows up in patient_info??
+
+things i learned: sql triggers are a way to make sql code trigger whenever there is a modification to a table,
+but making it run a python script might not be possible
+
+running the script on a server, whether a local server or an online one using something like pythonanywhere.com 
+or AWS or something like that may be possible, but probably isnt too efficient and also needs more investigation.
+The script would be checking the table for changes every x seconds/minutes
+
+could see if we can send ben our code to make
+
+bens code(python script) is constantly running in an infinite loop on the jhbox, will only update the server if there is a difference 
+
+
+
+todos: 
+
+- Work on the python script to make it run on only newly entered data
+- Meet with Ben and Dante at same time to discuss getting everything together
+

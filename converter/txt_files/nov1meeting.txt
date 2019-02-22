@@ -1,0 +1,19 @@
+
+
+Database
+    Live table - people on unit
+        Details table - has ambulation details of every patient that is currently in the unit
+        Daily table
+    Patient Info
+    Historical
+        Details
+        Daily 
+        Summary
+
+Patient Info
+
+
+should use total duration and total distance for total speed (for daily calculations)
+
+
+

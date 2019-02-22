@@ -1,0 +1,50 @@
+
+Only have dates -> convert the date to a time, plot those as x axis
+
+
+3 separate plots. 
+Example:
+
+Time vs. Duration
+
+
+First way: Ignore the days with no ambulations
+
+map time to ambulation deets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

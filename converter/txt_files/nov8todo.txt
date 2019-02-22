@@ -1,0 +1,8 @@
+
+- make day on unit be number of day not actual date 
+- make it run on historical data with new format instead of what it runs on now 
+
+
+live_details table has details, when they are discharged its cut and put into historical_details
+
+
