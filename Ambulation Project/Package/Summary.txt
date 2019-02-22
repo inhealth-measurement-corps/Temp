@@ -1,0 +1,23 @@
+Updates that William has included (Summer of 2018):
+1. End date functionality added so clinicians are able to analyze ambulation data from specified range.
+2. Updated room numbers and sensors so that appropriate assumptions about initial and end sensors are correct. 
+3. Created graphs (2D arrays) that map the Zayed 10W ward sensor distances. This allows for algorithms implemented
+such as Dijkstras' Shortest Path to return the shortest distance between any two sensors. The first graph maps the 
+entire ward excluding the middle sensor (sensor 037) and the second graph considers all sensors.
+4. Added the assumption that an ambulation should not take longer than an hour and should have fewer than 100 segments.
+5. Added remaining valid sensors that were not considered in previous code.
+6. Added checks for if the middle sensor (sensor 037) is in the trajectory of anomalies. With the current 
+code (originating from Ben's structure), the middle sensor gets mapped a rounded integer in the "values" vector 
+(which is a vector which holds the relative position change of a patient's ambulation). In order to avoid false positives
+(when the code considers a segment an anomaly when it is actually a valid sequence), I do not run anomalies if the middle
+sensor is in the trajectory of a detected false positive anomaly. 
+7. Wrote code to predict the trajectory of a patient. (relevant to start, middle, end skip cases, skip cases deciding if
+missed middle vs outer sensors, skip cases if missed one or a few segments vs if missed the majority of the sensors, and
+whether segments from sensor 13 to 1 to 4 is valid or if it should be 13 to 4).
+8. Accounted for various skip sensor cases.
+9. Deleted many of the hard coded cases such as (skip cases from specific segments such as [0, 2] which denotes 1 skip,
+[0, 3] which denotes 2 skips, etc., cases involving the middle sensor skips)
+10. Reorganized structure so that special cases such as skip sensor management is at the start, the hard coded anomalies
+are in the middle, and the normal segment calculations are looked at last. 
+11. Wrote python code to handle live pushing to database.
+12. Wrote batch script to automate pushing calculation output to the database. 

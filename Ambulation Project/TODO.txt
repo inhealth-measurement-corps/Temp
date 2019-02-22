@@ -1,0 +1,12 @@
+1. 
+	Create primary key on the SQL Database (alternatively, use left join instead of insert statement)
+	Find an alternate solution to the null issue?
+
+2.
+	Test the code that I have already written
+	
+3. 
+	Hand check results from 2
+	
+4. 
+	At the moment is in the form of replacable text within the code, but will need to test it to make sure that it works
