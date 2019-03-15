@@ -1,0 +1,13 @@
+Summary of what it does:
+- connects to our database from the script using functionality provided by MySQLdb package
+- connects using necessary username and password
+- selects historical details table, which contains a record of ambulations by patients that 
+have already been discharged, and uses that info to populate the ambulation unit and ambulation daily tables in 
+the same database 
+    - ambulation unit has data more relevant to the entirety of the stay - i.e. total distance, change in speed
+    over time, etc. whereas ambulation daily is a table with a day by day breakdown of each patients stay, 
+    where each row is a day
+
+converter.py is the main script that runs, whereas conv_classes.py contains the classes converter.py uses
+*laptop needs to be connected to Hopkins wifi for it to connect to the database. 
+

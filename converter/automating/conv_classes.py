@@ -197,43 +197,17 @@ class Patient(object):
         if len(self.ambulation_time_list) > 1: #need to have more than one ambulation to run the regression
             self.calc_deltas()
 
-    #treating days with no ambulations as having 1 ambulation with 0 duration, 0 distance, 0 speed
-    def regression_v3(self):
-        if len(self.ambulations) > 1: #need to have more than one ambulation to run the regression
-            self.calc_deltas_w_amb_num()
-
 
     def calc_deltas(self):
         #print(type(self.ambulation_time_list))
-        print(type(self.ambulation_time_list[0]))
+        #print(type(self.ambulation_time_list[0]))
         slope, intercept, r_value, p_value, std_err = linregress(self.ambulation_time_list, self.dist_list)
-        #self.plot_regression(slope, intercept, r_value, p_value, std_err, np.asarray(self.ambulation_time_list), np.asarray(self.dist_list))
+        self.plot_regression(slope, intercept, r_value, p_value, std_err, np.asarray(self.ambulation_time_list), np.asarray(self.dist_list))
         self.delta_dist = slope
         slope, intercept, r_value, p_value, std_err = linregress(self.ambulation_time_list, self.dur_list)
         self.delta_dur = slope
         slope, intercept, r_value, p_value, std_err = linregress(self.ambulation_time_list, self.speed_list)
         self.delta_speed = slope
-
-    def calc_deltas_w_amb_num(self):
-        self.sort_ambulations()
-        num_list = range(1, len(self.ambulations) + 1)
-        print(num_list)
-        for ambulation in self.ambulations:
-            self.dur_list.append(ambulation.dur)
-            self.dist_list.append(ambulation.dist)
-            self.speed_list.append(ambulation.speed)
-
-        #print("length of num_list:", len(num_list), "length of other lists:", len(self.dur_list), len(self.dist_list), len(self.speed_list))
-        
-        slope, intercept, r_value, p_value, std_err = linregress(num_list, self.dist_list)
-        #self.plot_regression(slope, intercept, r_value, p_value, std_err, np.asarray(num_list), np.asarray(self.dist_list))
-        self.delta_dist = slope
-        slope, intercept, r_value, p_value, std_err = linregress(num_list, self.dur_list)
-        self.delta_dur = slope
-        slope, intercept, r_value, p_value, std_err = linregress(num_list, self.speed_list)
-        self.delta_speed = slope
-        
-
 
     def plot_regression(self, slope, intercept, r_value, p_value, std_err, x, y):
         plt.plot(x, y, 'o', label='original data')
@@ -342,36 +316,19 @@ class Patient(object):
         print("Compliances-", "Compliance 1:", self.compliance_1, "Compliance 2:", self.compliance_2, "Compliance 3:", self.compliance_3)
         print("Deltas-", "Distance CoT:", self.delta_dist, "Duration CoT:", self.delta_dur, "Speed CoT:", self.delta_speed)
 
-    #Sorts ambulations by number of ambulations
-    def sort_ambulations(self):
-        self.ambulations.sort(key=lambda x: x.amb_num)
-
-    def print_ambulations(self):
-        self.sort_ambulations()
-        for ambulation in self.ambulations:
-            ambulation.print_amb_data()
-        for dist in self.dist_list:
-            print(dist)
-
 
 class Ambulation(object):
 
 
     # The class "constructor" - It's actually an initializer 
-    def __init__(self, mrn, start_date, start_time, distance, duration, speed, ambulation_number):
+    def __init__(self, mrn, start_date, start_time, distance, duration, speed):
         self.mrn = mrn #mrn might be redundant as the patient object holding them should already have mrn 
         self.start_date = start_date #starting date of the ambulation
         self.start_time = start_time #starting time of the ambulation
         self.dur = duration
         self.dist = distance
         self.speed = speed
-        self.amb_num = ambulation_number
         self.time_on_unit = -1 #Not sure what this is. Ask Dr. Searson for clarification again
-
-
-    def print_amb_data(self):
-        print("mrn:",self.mrn, "start_date:", self.start_date, "start_time:", self.start_time, "Ambulation num:", self.amb_num)
-        print("Duration:", self.dur, "Distance:", self.dist, "Speed:", self.speed, )
 
 class Day(object):
 

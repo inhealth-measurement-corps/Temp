@@ -1,0 +1,13 @@
+
+- Bens code currently is on an infinite loop. in this loop, it:
+    - reads in 'Versus Excel Sheet.xlsx'
+    - converts it to a csv file 'output.csv'
+    - writes some stuff gotten from output.csv into temp.csv in some form 
+    - writes the contents of temp.csv back into output.csv (????)
+    - replaces the values in the patient_info table with the values in output.csv
+
+
+
+
+
+

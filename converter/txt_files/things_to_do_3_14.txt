@@ -1,0 +1,5 @@
+-  add all parts of your code to the appropriate folders before Monday (3/18)
+- Also, for the derivatives in the time_on_unit table- can you please modify the way they were calculated?  Peter informed me today that having the x-axis be number of ambulation instead of time on unit is better. 
+- Make some sort of progress on combining me, Ben, and Dante's code. 
+
+

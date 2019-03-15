@@ -1,4 +1,3 @@
-import csv
 import MySQLdb
 from conv_classes import Patient, Ambulation
 import numpy as np
@@ -17,18 +16,18 @@ cur.execute("SELECT * FROM historical_details") #get the ambulation table
 
 patient_map = {} # A map of patient numbers/MRNs to patient objects
 
-#for row in cur.fetchmany(27):
+#for row in cur.fetchmany(5):
 for row in cur.fetchall():
     if patient_map.get(row[0]) != None: #the patient is already in our dict
         patient = patient_map[row[0]] #get the patient object corresponding to this MRN - stays the same
-        ambulation = Ambulation(row[0], row[2], row[3], row[4], row[5], row[6])
+        ambulation = Ambulation(row[0], row[2], row[3], row[4], row[5], row[6], row[1])
         patient.add_ambulation(ambulation)
 
     else: #the patient is not in our dict yet
         cur2.execute("SELECT * FROM patient_info WHERE patient_id = %s", (row[0],))
         row2 = cur2.fetchone()
         patient =  Patient(row[0], row2[2], row2[1], row2[3], row2[4], row2[6], row2[7])
-        ambulation = Ambulation(row[0], row[2], row[3], row[4], row[5], row[6])
+        ambulation = Ambulation(row[0], row[2], row[3], row[4], row[5], row[6], row[1])
         patient.add_ambulation(ambulation)
         patient_map[patient.mrn] = patient
 
@@ -41,10 +40,11 @@ for x, y in patient_map.items():
     print()
     print("Data for MRN", x)
     #y.print_days()
-    y.regression_v1()
+    #y.regression_v1()
     #y.regression_v2()
+    y.regression_v3()
+    #y.print_ambulations()
     y.print_data()
-
 
 '''
 for x, y in patient_map.items():
@@ -56,7 +56,7 @@ for x, y in patient_map.items():
     #y.show_regression("speed")
 '''
 
-'''
+
 with open("Ambulation_Unit.csv", 'w') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -72,7 +72,7 @@ with open("Ambulation_Daily.csv", 'w') as csvfile:
     for x, y in patient_map.items():
         for a, b in y.date_to_day.items():
             filewriter.writerow([y.mrn, b.day_number, b.num_ambulations, b.max_dist, b.mean_dist, b.min_dist, b.max_dur ,b.mean_dur, b.min_dur, b.max_speed, b.mean_speed, b.min_speed])
-'''
+
 
 
 
